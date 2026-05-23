@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GotasDaVida.Api/GotasDaVida.Api.csproj" />
+  <Project Path="GotasDaVida.Application/GotasDaVida.Application.csproj" />
+  <Project Path="GotasDaVida.Domain/GotasDaVida.Domain.csproj" />
+  <Project Path="GotasDaVida.Infrastructure/GotasDaVida.Infrastructure.csproj" />
+</Solution>

@@ -1,0 +1,6 @@
+@GotasDaVida.Api_HostAddress = http://localhost:5177
+
+GET {{GotasDaVida.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
