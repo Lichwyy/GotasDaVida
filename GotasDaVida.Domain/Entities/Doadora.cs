@@ -1,31 +1,55 @@
-using GotasDaVida.Domain.ValueObjects;
+﻿using GotasDaVida.Domain.Cadastros.ValueObjects;
+using GotasDaVida.Domain.Common;
 
 namespace GotasDaVida.Domain.Entities;
 
-public class Doadora
+public class Doadora : Entity
 {
-    public Guid Id { get; private set; }
+    public Guid CadastroId { get; private set; }
+
     public string NomeCompleto { get; private set; }
-    public DateOnly DataNascimento { get; private set; }
-    public string Whatsapp { get; private set; }
-    public string Email { get; private set; }
-    public Endereco Endereco { get; private set; }
-    public CartaoSus CartaoSus { get; private set; }
+
+    public DateTime DataNascimento { get; private set; }
+
+    public Whatsapp Whatsapp { get; private set; }
+
+    public Email Email { get; private set; }
+
+    public string Bairro { get; private set; }
+
+    public string Cidade { get; private set; }
+
+    public string Estado { get; private set; }
+
+    public bool SusPossui { get; private set; }
+
+    public string? SusNumero { get; private set; }
+
+    private Doadora()
+    {
+    }
 
     public Doadora(
+        Guid cadastroId,
         string nomeCompleto,
-        DateOnly dataNascimento,
-        string whatsapp,
-        string email,
-        Endereco endereco,
-        CartaoSus cartaoSus)
+        DateTime dataNascimento,
+        Whatsapp whatsapp,
+        Email email,
+        string bairro,
+        string cidade,
+        string estado,
+        bool susPossui,
+        string? susNumero)
     {
-        Id = Guid.NewGuid();
+        CadastroId = cadastroId;
         NomeCompleto = nomeCompleto;
         DataNascimento = dataNascimento;
         Whatsapp = whatsapp;
         Email = email;
-        Endereco = endereco;
-        CartaoSus = cartaoSus;
+        Bairro = bairro;
+        Cidade = cidade;
+        Estado = estado;
+        SusPossui = susPossui;
+        SusNumero = susNumero;
     }
 }

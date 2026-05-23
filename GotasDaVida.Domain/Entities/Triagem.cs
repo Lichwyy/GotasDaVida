@@ -1,45 +1,78 @@
-using GotasDaVida.Domain.Enums;
-using GotasDaVida.Domain.ValueObjects;
+﻿using GotasDaVida.Domain.Enums;
+using GotasDaVida.Domain.Common;
 
 namespace GotasDaVida.Domain.Entities;
-
-public class Triagem
+public class Triagem : Entity
 {
-    public Guid Id { get; private set; }
-    public bool LactacaoAtiva { get; private set; }
-    public bool UsoDrogasIlicitas { get; private set; }
-    public Tabagismo Tabagismo { get; private set; }
-    public Alcool Alcool { get; private set; }
-    public TatuagemPiercing TatuagemPiercing { get; private set; }
-    public Transfusao Transfusao { get; private set; }
-    public MedicamentoContinuo MedicamentoContinuo { get; private set; }
-    public Vacinas Vacinas { get; private set; }
-    public StatusCadastro Resultado { get; private set; }
+    public Guid CadastroId { get; private set; }
 
-    public Triagem(
-        bool lactacaoAtiva,
-        bool usoDrogasIlicitas,
-        Tabagismo tabagismo,
-        Alcool alcool,
-        TatuagemPiercing tatuagemPiercing,
-        Transfusao transfusao,
-        MedicamentoContinuo medicamentoContinuo,
-        Vacinas vacinas)
+    public bool LactacaoAtiva { get; private set; }
+
+    public bool UsoDrogasIlicitas { get; private set; }
+
+    public bool Fuma { get; private set; }
+
+    public int? CigarrosPorDia { get; private set; }
+
+    public bool AlcoolConsome { get; private set; }
+
+    public FrequenciaAlcool AlcoolFrequencia { get; private set; }
+
+    public bool TatuagemRealizou { get; private set; }
+
+    public string? TatuagemMesAno { get; private set; }
+
+    public bool TransfusaoRealizou { get; private set; }
+
+    public string? TransfusaoMesAno { get; private set; }
+
+    public bool MedicamentoUsa { get; private set; }
+
+    public string? MedicamentoQual { get; private set; }
+
+    public bool VacinaFebreAmarela { get; private set; }
+
+    public bool VacinaDtpa { get; private set; }
+
+    public ResultadoTriagem Resultado { get; private set; }
+
+    private Triagem()
     {
-        Id = Guid.NewGuid();
-        LactacaoAtiva = lactacaoAtiva;
-        UsoDrogasIlicitas = usoDrogasIlicitas;
-        Tabagismo = tabagismo;
-        Alcool = alcool;
-        TatuagemPiercing = tatuagemPiercing;
-        Transfusao = transfusao;
-        MedicamentoContinuo = medicamentoContinuo;
-        Vacinas = vacinas;
-        Resultado = StatusCadastro.PendenteAvaliacao;
     }
 
-    internal void AplicarResultado(StatusCadastro resultado)
+    public Triagem(
+        Guid cadastroId,
+        bool lactacaoAtiva,
+        bool usoDrogasIlicitas,
+        bool fuma,
+        int? cigarrosPorDia,
+        bool alcoolConsome,
+        FrequenciaAlcool alcoolFrequencia,
+        bool tatuagemRealizou,
+        string? tatuagemMesAno,
+        bool transfusaoRealizou,
+        string? transfusaoMesAno,
+        bool medicamentoUsa,
+        string? medicamentoQual,
+        bool vacinaFebreAmarela,
+        bool vacinaDtpa,
+        ResultadoTriagem resultado)
     {
+        CadastroId = cadastroId;
+        LactacaoAtiva = lactacaoAtiva;
+        UsoDrogasIlicitas = usoDrogasIlicitas;
+        Fuma = fuma;
+        CigarrosPorDia = cigarrosPorDia;
+        AlcoolConsome = alcoolConsome;
+        AlcoolFrequencia = alcoolFrequencia;
+        TatuagemRealizou = tatuagemRealizou;
+        TatuagemMesAno = tatuagemMesAno;
+        TransfusaoRealizou = transfusaoRealizou;
+        TransfusaoMesAno = transfusaoMesAno;
+        MedicamentoUsa = medicamentoUsa;
+        MedicamentoQual = medicamentoQual;
+        VacinaFebreAmarela = vacinaFebreAmarela;
+        VacinaDtpa = vacinaDtpa;
         Resultado = resultado;
     }
 }

@@ -1,8 +1,9 @@
-namespace GotasDaVida.Domain.Enums;
+﻿namespace GotasDaVida.Domain.Enums;
 
 public enum FrequenciaAlcool
 {
-    NaoConsome,
-    Eventualmente,
-    Frequentemente
+    Nunca = 1,
+    Raramente = 2,
+    Semanalmente = 3,
+    Frequentemente = 4
 }

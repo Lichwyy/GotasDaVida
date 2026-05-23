@@ -1,8 +1,9 @@
 namespace GotasDaVida.Domain.Enums;
 
-public enum StatusCadastro
+public enum CadastroStatus
 {
-    Apta,
-    Inapta,
-    PendenteAvaliacao
+    Pendente = 1,
+    EmAnalise = 2,
+    Aprovado = 3,
+    Rejeitado = 4
 }
